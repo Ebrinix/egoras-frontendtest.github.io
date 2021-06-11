@@ -38,7 +38,8 @@ const App = () => {
           <Navbar />
           <Scrolltotop />
           <Route exact path='/' component={Landing} />
-          <section className='py-0 py-md-4'>
+          <section className='py-0'>
+          {/* <section className=''> */}
             <Alert />
             <Switch>
               <Route exact path='/register' component={Register} />
