@@ -21,6 +21,7 @@ import Productresults from './components/layout/product/Productresults';
 import Productdetails from './components/layout/product/Productdetails';
 import Scrolltotop from './components/layout/parts/Scrolltotop';
 import Application from './components/layout/loan/Application';
+import Verification from './components/layout/loan/Verification';
 import Createadmin from './components/layout/Admin/Createadmin';
 
 if (localStorage.token) {
@@ -46,6 +47,7 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <Route exact path='/admin/create' component={Createadmin} />
               <Route exact path='/loan/application' component={Application} />
+              <Route exact path='/loan/verification' component={Verification} />
               <Route exact path='/product-result' component={Productresults} />
               <Route exact path='/product-details' component={Productdetails} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />

@@ -15,7 +15,7 @@ import { setAlert } from "./alert";
 
 
 // Add Loan
-export const createUser = ({firstname, lastname, middlename, email, phoneNumber, passportPhoto, branch , staffId , meansOfId , password}) => async dispatch => {
+export const createUser = ({first_name, last_name, other_name, email, sex, date_of_birth, phone, passport, branch , staffId , meansOfID , password}) => async dispatch => {
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const createUser = ({firstname, lastname, middlename, email, phoneNumber,
     };
   
     const body = JSON.stringify({
-        firstname, lastname, middlename, email, phoneNumber, passportPhoto, branch , staffId , meansOfId , password
+      first_name, last_name, other_name, email, sex, date_of_birth, phone, passport, branch , staffId , meansOfID , password
     });
     console.log(body);
   

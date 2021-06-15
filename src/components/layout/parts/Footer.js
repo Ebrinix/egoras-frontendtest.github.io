@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
@@ -6,6 +6,17 @@ export const Footer = () => {
     const currentPage = window.location.pathname;
 
     const [adminLocate, setAdminLocate] = useState(false);
+
+    useEffect(() => {
+        console.log(currentPage);
+        
+        if (currentPage == '/admin/create') {
+            setAdminLocate(false);
+        } else {
+            setAdminLocate(true);
+        }
+            
+    });
   return (
     <div>
         {adminLocate == true ? (

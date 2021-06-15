@@ -73,7 +73,7 @@ export const Navbar = ({}) => {
                                     <a id="searchMobileToggler" className="nav-link text-dark" href="#"><i className="fa fa-search"></i> </a>
                                 </li>
                                 <li className="nav-item custom-nav active">
-                                    <a className="nav-link text-dark" href="#" data-toggle="modal" data-target="#allCountry"><i className="fas fa-shopping-bag"></i> <span className="mobileHideIt">Cart</span></a>
+                                    <a className="nav-link text-dark" href="/loan/verification"><i className="fas fa-shopping-bag"></i> <span className="mobileHideIt">Cart</span></a>
                                 </li>
                                 <li className="nav-item custom-nav">
                                     <a className="nav-link text-dark" href="/admin/create"><i className="far fa-question-circle"></i> <span className="mobileHideIt">Help</span></a>
