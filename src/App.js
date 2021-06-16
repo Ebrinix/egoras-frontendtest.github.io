@@ -4,6 +4,7 @@ import Navbar from './components/layout/parts/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Changepassword from './components/auth/Changepassword';
 import Alert from './components/layout/Alert';
 // Redux
 import { Provider } from 'react-redux';
@@ -14,6 +15,7 @@ import setAuthToken from './utils/setAuthToken';
 
 import './css/App.css';
 import './css/Nav.css';
+// import './css/Login.css';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Footer from './components/layout/parts/Footer';
@@ -45,6 +47,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/change-password' component={Changepassword} />
               <Route exact path='/admin/create' component={Createadmin} />
               <Route exact path='/loan/application' component={Application} />
               <Route exact path='/loan/verification' component={Verification} />

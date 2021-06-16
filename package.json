@@ -26,6 +26,7 @@
     "pretty-checkbox-react": "^3.1.0",
     "rc-datepicker": "^5.0.16",
     "react": "^16.13.1",
+    "react-data-table-component": "^6.11.7",
     "react-date-picker": "^8.2.0",
     "react-datepicker": "^4.1.1",
     "react-dom": "^16.13.1",
@@ -43,6 +44,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.3.0",
     "uuid": "^8.1.0"
   },
   "scripts": {
@@ -66,5 +68,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001/"
+  "proxy": "http://localhost:3000/"
 }

@@ -242,6 +242,68 @@ body{
 }
 
 
+
+/* Login */
+@media (min-width: 1200px)
+{.cus-container, .cus-container-lg, .cus-container-md, .cus-container-sm, .cus-container-xl {
+    max-width: 1140px;
+}}
+@media (min-width: 992px)
+{.cus-container, .cus-container-lg, .cus-container-md, .cus-container-sm {
+    max-width: 960px;
+}}
+
+@media (min-width: 768px)
+{.cus-container, .cus-container-md, .cus-container-sm {
+    max-width: 720px;
+}}
+@media (min-width: 576px)
+{.cus-container, .cus-container-sm {
+    max-width: 540px;
+}}
+@media (min-width: 1200px)
+{.cus-container {
+    max-width: 1140px;
+}}
+@media (min-width: 992px)
+{.cus-container {
+    max-width: 960px;
+}}
+@media (min-width: 768px)
+{.cus-container {
+    max-width: 720px;
+}}
+@media (min-width: 576px)
+{.cus-container {
+    max-width: 540px;
+}}
+.cus-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.min-vh-100 {
+    min-height: 100vh!important;
+}
+
+.align-items-center {
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+
+@media (min-width: 768px)
+{
+    .cpt-md-0, .cpy-md-0 {
+        padding-top: 0!important;
+    }
+}
+
+
+
+
 @keyframes fadeInRight{
     
     0% {

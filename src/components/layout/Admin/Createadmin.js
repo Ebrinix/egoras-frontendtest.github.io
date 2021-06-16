@@ -13,6 +13,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
+import Input from '@material-ui/core/Input';
 
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -91,9 +92,14 @@ export const Createadmin = ({ setAlert, createUser }) => {
         passport: "",
         branch: "",
         staffId: "",
+        mainRole: "",
         meansOfID: "",
         password: "",
         confirmPassword: "",
+        errors: {
+            password: '',
+            confirmPassword: '',
+          }
     });
 
     const checkMimeType = (event) => {
@@ -152,24 +158,73 @@ export const Createadmin = ({ setAlert, createUser }) => {
     const handleChange23 = (event) => {
         setRole(event.target.value);
         console.log(event.target.value);
+        
+        // $('#getForm input[type="text"]').val('');
+        document.getElementById("getForm").reset();
 
         if (event.target.value === 'in-house') {
             setToggleDesignation('in-house');
+            setUserInfo({
+                mainRole: event.target.value,
+              });
         } else if (event.target.value === 'super-admin') {
             setToggleDesignation('super-admin');
+            setUserInfo({
+                mainRole: event.target.value,
+              });
         } else if (event.target.value === 'admin') {
             setToggleDesignation('admin');
+            setUserInfo({
+                mainRole: event.target.value,
+              });
         }
         
     };
 
-    const onChange1 = e =>
+    const onChange1 = e => {
         setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+        // const { name, value } = e.target;
+        
+        // switch (name) {
+        //     case 'password': 
+        //       errors.password = 
+        //         value.length < 7
+        //           ? 'Password must be 7 characters long!'
+        //           : '';
+            
+        //       break;
+        //     case 'confirmPassword': 
+        //         errors.confirmPassword = 
+        //         value.length < 7
+        //           ? 'Password must be 7 characters long!'
+        //           : '';
+        //       break;
+        //     case 'password': 
+        //     //   errors.password = 
+        //     //    value.length < 8
+        //     //       ? 'Password must be 8 characters long!'
+        //     //       : '';
+        //       break;
+        //     default:
+        //       break;
+        //   }
 
-    const { first_name, last_name, other_name, email, phone, passport, branch , staffId , meansOfID , password, confirmPassword } = userInfo;  
+        //   console.log(errors.password);
+    }
 
+    // var str = 'hellsorld';
+    // var result = regex.test(str);
+    // console.log(result);
+    
+    const { first_name, last_name, other_name, email, phone, passport, branch , staffId , meansOfID , password, confirmPassword, errors } = userInfo;  
+    
     const onSubmit = async e => {
         e.preventDefault();
+        var regex1 = /\d/g;
+        var regex2 = /[a-z]/;
+        var regex3 = /[A-Z]/;
+        var regex4 = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        
 
         if (toggleDesignation === 'in-house') {
             if (first_name === '' || last_name === '' || other_name === '' || phone === '' || email === '' || passport === '' || branch === '' || staffId === '' || designation === '' || password === '' || confirmPassword === '') {
@@ -178,22 +233,51 @@ export const Createadmin = ({ setAlert, createUser }) => {
             
             } else {  
                 if (password !== confirmPassword) {
-                    // setAlert('passwords do not match', 'danger');
+                    setAlert('passwords do not match', 'danger');
                     // setIsLoading(false);
                 }else if(password.length < 7){
-                    // setAlert('passwords must be seven(7) characters long or more!', 'danger');
+                    setAlert('passwords must be seven(7) characters long or more!', 'danger');
                     // setIsLoading(false);
                 } else {
-                    createUser({first_name, last_name, other_name, email, sex, date_of_birth, phone, passport, branch , staffId , meansOfID , password})
+        
+                    if (regex1.test(confirmPassword) && regex2.test(confirmPassword) && regex3.test(confirmPassword) && regex4.test(confirmPassword)) {
+                        createUser({first_name, last_name, other_name, email, sex, date_of_birth, designation, phone, passport, branch , staffId , meansOfID , password})
+                        
+                    } else {
+                        console.log('not ok');
+                        setAlert('Password must contain atleast one uppercase, a number and a special chracter', 'danger');
+                        
+                    }
+                    
                 }
             }
         } else {
+            if (first_name === '' || last_name === '' || other_name === '' || phone === '' || email === '' || passport === '' || branch === '' || staffId === '' || password === '' || confirmPassword === '') {
+                console.log('empty');
+                setAlert('All fields are required', 'danger');
             
+            } else {  
+                if (password !== confirmPassword) {
+                    setAlert('passwords do not match', 'danger');
+                    // setIsLoading(false);
+                }else if(password.length < 7){
+                    setAlert('passwords must be seven(7) characters long or more!', 'danger');
+                    // setIsLoading(false);
+                } else {
+        
+                    if (regex1.test(confirmPassword) && regex2.test(confirmPassword) && regex3.test(confirmPassword) && regex4.test(confirmPassword)) {
+                        createUser({first_name, last_name, other_name, email, sex, date_of_birth, aRole, phone, passport, branch , staffId , meansOfID , password})
+                        
+                    } else {
+                        console.log('not ok');
+                        setAlert('Password must contain atleast one uppercase, a number and a special chracter', 'danger');
+                        
+                    }
+                    
+                }
+            }
         }
 
-        console.log(first_name+' '+last_name+' '+other_name+' '+phone+' '+email+' '+passport+' '+branch+' '+staffId+' '+designation+' '+password+' '+confirmPassword);
-
-        
         
     };
 
@@ -288,7 +372,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                             <h3>Add User</h3>
                                         </div>
                                         
-                                        <form onSubmit={e => onSubmit(e)}>
+                                        <form id='getForm' onSubmit={e => onSubmit(e)}>
                                         <FormControl className='custom-radio' component="fieldset">
                                             {/* <FormLabel component="legend">Gender</FormLabel> */}
                                             <RadioGroup className='sex-input' aria-label="gender" name="gender" value={aRole} onChange={handleChange23}>
@@ -299,19 +383,30 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                         </FormControl>
                                             <div className="form-row">
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Firstname"
                                                         placeholder="Firstname"
                                                         multiline
                                                         variant="outlined"
                                                         className='custom-inputs w-100'
                                                         name='first_name' 
+                                                        type="text"
                                                         value={first_name} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Firstname</label>
+                                                    <Input 
+                                                        placeholder="Firstname" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='first_name' 
+                                                        type="text"
+                                                        value={first_name} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Lastname"
                                                         placeholder="Lastname"
                                                         multiline
@@ -320,10 +415,20 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='last_name' 
                                                         value={last_name} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Lastname</label>
+                                                    <Input 
+                                                        placeholder="Lastname" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='last_name' 
+                                                        type="text"
+                                                        value={last_name} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Middlename"
                                                         placeholder="Middlename"
                                                         multiline
@@ -332,10 +437,20 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='other_name' 
                                                         value={other_name} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Middlename</label>
+                                                    <Input 
+                                                        placeholder="Middlename" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='other_name' 
+                                                        type="text"
+                                                        value={other_name} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Email"
                                                         placeholder="Email"
                                                         multiline
@@ -345,6 +460,16 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='email' 
                                                         value={email} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Email</label>
+                                                    <Input 
+                                                        placeholder="Email" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='email' 
+                                                        type="text"
+                                                        value={email} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 
@@ -357,18 +482,24 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         </RadioGroup>
                                                     </FormControl>
                                                 </div>
-                                                <div className="form-group col-md-6">
+                                                {/* {
+                                                    <div> */}
+                                                        {toggleDesignation === 'in-house' || toggleDesignation === 'admin' ? (
+                                                            <div className="form-group col-md-6">
                                                     
-                                                    <label for="" style={{marginBottom: '3px'}}>Date of Birth</label>
-                                                    <DatePicker
-                                                        onChange={onChange}
-                                                        value={date_of_birth}
-                                                        name={date_of_birth}
-                                                        className='custom-datepicker w-100 h-50'
-                                                    />
-                                                </div>
+                                                                <label for="" style={{marginBottom: '3px'}}>Date of Birth</label>
+                                                                <DatePicker
+                                                                    onChange={onChange}
+                                                                    value={date_of_birth}
+                                                                    name={date_of_birth}
+                                                                    className='custom-datepicker w-100 h-50'
+                                                                />
+                                                            </div>
+                                                        ) : null}
+                                                    {/* </div>
+                                                } */}
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         id="outlined-number"
                                                         label="Phone Number"
                                                         placeholder="Phone Number"
@@ -378,11 +509,21 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='phone' 
                                                         value={phone} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Phone Number</label>
+                                                    <Input 
+                                                        placeholder="Phone Number" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='phone' 
+                                                        type="number"
+                                                        value={phone} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                     
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Branch"
                                                         placeholder="Branch"
                                                         multiline
@@ -391,6 +532,16 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='branch' 
                                                         value={branch} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Branch</label>
+                                                    <Input 
+                                                        placeholder="Branch" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='branch' 
+                                                        type="text"
+                                                        value={branch} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 {/* {
@@ -398,7 +549,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         {toggleDesignation === 'in-house' ? (
                                                             <div className="form-group col-md-6">
                                                                 <div className='mr-2'>
-                                                                    <FormControl className={classes.formControl+ " w-100" }>
+                                                                    <FormControl className={classes.formControl+ " mt-1 w-100" }>
                                                                         <InputLabel id="demo-controlled-open-select-label">Designation</InputLabel>
                                                                         <Select
                                                                             labelId="demo-controlled-open-select-label"
@@ -426,7 +577,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                 } */}
                                                 
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Staff Id"
                                                         placeholder="Staff Id"
                                                         multiline
@@ -435,10 +586,20 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='staffId' 
                                                         value={staffId} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Staff Id</label>
+                                                    <Input 
+                                                        placeholder="Staff Id" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='staffId' 
+                                                        type="text"
+                                                        value={staffId} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Means of Id"
                                                         placeholder="Means of Id"
                                                         multiline
@@ -447,6 +608,16 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='meansOfID' 
                                                         value={meansOfID} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Means of Id</label>
+                                                    <Input 
+                                                        placeholder="Means of Id" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='meansOfID' 
+                                                        type="text"
+                                                        value={meansOfID} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
@@ -455,7 +626,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                     <img id="output1" className="img-fluid mt-4" />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Password"
                                                         placeholder="Password"
                                                         multiline
@@ -464,10 +635,20 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='password' 
                                                         value={password} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Password</label>
+                                                    <Input 
+                                                        placeholder="Password" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='password' 
+                                                        type="text"
+                                                        value={password} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                                 <div className="form-group col-md-6">
-                                                    <TextField
+                                                    {/* <TextField
                                                         label="Confirm Password"
                                                         placeholder="Confirm Password"
                                                         multiline
@@ -476,6 +657,16 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                         name='confirmPassword' 
                                                         value={confirmPassword} 
                                                         onChange={e => onChange1(e)}
+                                                    /> */}
+                                                    <label>Confirm Password</label>
+                                                    <Input 
+                                                        placeholder="Confirm Password" 
+                                                        inputProps={{ 'aria-label': 'description' }}
+                                                        className='custom-inputs w-100'
+                                                        name='confirmPassword' 
+                                                        type="text"
+                                                        value={confirmPassword} 
+                                                        onChange={e => onChange1(e)} 
                                                     />
                                                 </div>
                                             </div>

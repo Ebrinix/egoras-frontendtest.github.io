@@ -881,7 +881,7 @@ function getSteps() {
                               variant="contained"
                               color="primary"
                               onClick={handleNext}
-                              className={classes.button}
+                              className={classes.button+' next-btn'}
                             >
                               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                             </Button>

@@ -7,7 +7,7 @@ import { login } from '../../actions/auth';
 
 import '../../css/Login.css';
 
-export const Login = ({ login, isAuthenticated }) => {
+export const Changepassword = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -75,43 +75,57 @@ export const Login = ({ login, isAuthenticated }) => {
                   </p> */}
                 </div>
                 <div className="col-md-7">
-                  <div className="card-body">
+                  <div className="card-body py-4">
                     <div className="brand-wrapper">
                       <img src="/egoras-favicon.png" width='120' alt="logo" className="logo" />
                     </div>
-                    <p className="login-card-description">Sign into your account</p>
+                    <p className="login-card-description">Change your Password</p>
                     <form onSubmit={e => onSubmit(e)}>
                         <div className="form-group">
-                          <label for="email" className="sr-only">Email</label>
+                          <label for="oldPassword" className="sr-only">Old Password</label>
                           <input 
-                            type="email" 
-                            name="email" 
-                            id="email" 
+                            type="text"
+                            id="oldPassword" 
+                            name="oldPassword" 
                             className="form-control" 
-                            placeholder="Email address"
-                            name='email'
+                            placeholder="Old Password"
+                            name='oldPassword'
                             value={email}
                             onChange={e => onChange(e)}
                             required 
                           />
                         </div>
                         <div className="form-group mb-4">
-                          <label for="password" className="sr-only">Password</label>
+                          <label for="password" className="sr-only">New Password</label>
                           <input 
-                            type="password" 
+                            type="text" 
                             name="password" 
                             id="password" 
                             className="form-control" 
-                            placeholder="***********" 
+                            placeholder="New Password" 
                             value={password}
                             onChange={e => onChange(e)}
                             required
                             minLength='8'
                           />
                         </div>
-                        <input name="login" id="login" className="btn btn-block login-btn mb-4" type="button" value="Login" />
+                        <div className="form-group mb-4">
+                          <label for="confirmPassword" className="sr-only">Confirm New Password</label>
+                          <input 
+                            type="text" 
+                            name="confirmPassword" 
+                            id="password" 
+                            className="form-control" 
+                            placeholder="Confirm New Password" 
+                            value={password}
+                            onChange={e => onChange(e)}
+                            required
+                            minLength='8'
+                          />
+                        </div>
+                        <button name="login" id="login" className="btn btn-block login-btn mb-4" type="submit">Change Password</button>
                       </form>
-                      <a href="/change-password" className="forgot-password-link">Change password?</a>
+                      <a href="#!" className="forgot-password-link">Forgot password?</a>
                       <p className="login-card-footer-text">Don't have an account? <a href="#!" className="text-reset">Register here</a></p>
                       <nav className="login-card-footer-nav">
                         <a href="#!">Terms of use.</a>
@@ -129,7 +143,7 @@ export const Login = ({ login, isAuthenticated }) => {
   );
 };
 
-Login.propTypes = {
+Changepassword.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 };
@@ -138,4 +152,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login })(Changepassword);

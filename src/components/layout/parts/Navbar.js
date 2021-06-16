@@ -22,7 +22,7 @@ export const Navbar = ({}) => {
     useEffect(() => {
         console.log(currentPage);
         
-        if (currentPage == '/admin/create') {
+        if (currentPage == '/admin/create' || currentPage == '/login' || currentPage == '/change-password') {
             setAdminLocate(false);
         } else {
             setAdminLocate(true);
