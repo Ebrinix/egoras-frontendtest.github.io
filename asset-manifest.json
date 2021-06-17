@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/egoras-frontendtest/static/css/main.f69c1d72.chunk.css",
+    "main.js": "/egoras-frontendtest/static/js/main.58bf80f9.chunk.js",
+    "main.js.map": "/egoras-frontendtest/static/js/main.58bf80f9.chunk.js.map",
+    "runtime-main.js": "/egoras-frontendtest/static/js/runtime-main.9fa01548.js",
+    "runtime-main.js.map": "/egoras-frontendtest/static/js/runtime-main.9fa01548.js.map",
+    "static/css/2.08fca178.chunk.css": "/egoras-frontendtest/static/css/2.08fca178.chunk.css",
+    "static/js/2.1a3a9d8f.chunk.js": "/egoras-frontendtest/static/js/2.1a3a9d8f.chunk.js",
+    "static/js/2.1a3a9d8f.chunk.js.map": "/egoras-frontendtest/static/js/2.1a3a9d8f.chunk.js.map",
+    "static/js/3.d2d08b27.chunk.js": "/egoras-frontendtest/static/js/3.d2d08b27.chunk.js",
+    "static/js/3.d2d08b27.chunk.js.map": "/egoras-frontendtest/static/js/3.d2d08b27.chunk.js.map",
+    "static/js/4.ca8af364.chunk.js": "/egoras-frontendtest/static/js/4.ca8af364.chunk.js",
+    "static/js/4.ca8af364.chunk.js.map": "/egoras-frontendtest/static/js/4.ca8af364.chunk.js.map",
+    "static/js/5.ce5fdd88.chunk.js": "/egoras-frontendtest/static/js/5.ce5fdd88.chunk.js",
+    "static/js/5.ce5fdd88.chunk.js.map": "/egoras-frontendtest/static/js/5.ce5fdd88.chunk.js.map",
+    "index.html": "/egoras-frontendtest/index.html",
+    "precache-manifest.3b40c9f8b8d73e8bc23e186673c4bc0c.js": "/egoras-frontendtest/precache-manifest.3b40c9f8b8d73e8bc23e186673c4bc0c.js",
+    "service-worker.js": "/egoras-frontendtest/service-worker.js",
+    "static/css/2.08fca178.chunk.css.map": "/egoras-frontendtest/static/css/2.08fca178.chunk.css.map",
+    "static/css/main.f69c1d72.chunk.css.map": "/egoras-frontendtest/static/css/main.f69c1d72.chunk.css.map",
+    "static/js/2.1a3a9d8f.chunk.js.LICENSE.txt": "/egoras-frontendtest/static/js/2.1a3a9d8f.chunk.js.LICENSE.txt",
+    "static/js/3.d2d08b27.chunk.js.LICENSE.txt": "/egoras-frontendtest/static/js/3.d2d08b27.chunk.js.LICENSE.txt",
+    "static/js/4.ca8af364.chunk.js.LICENSE.txt": "/egoras-frontendtest/static/js/4.ca8af364.chunk.js.LICENSE.txt",
+    "static/js/5.ce5fdd88.chunk.js.LICENSE.txt": "/egoras-frontendtest/static/js/5.ce5fdd88.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/egoras-frontendtest/static/media/revicons.2feb69cc.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9fa01548.js",
+    "static/css/2.08fca178.chunk.css",
+    "static/js/2.1a3a9d8f.chunk.js",
+    "static/css/main.f69c1d72.chunk.css",
+    "static/js/main.58bf80f9.chunk.js"
+  ]
+}
