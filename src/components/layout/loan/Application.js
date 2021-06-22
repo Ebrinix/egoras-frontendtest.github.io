@@ -669,7 +669,7 @@ function getSteps() {
       if (firstname === '' || lastname === '' || middlename === '' || phoneNumber === '' || businessAddress === '' || applicantImg === '') {
         console.log('empty');
         setAlert('All fields are required', 'danger');
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        // setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(firstname+' '+lastname+' '+middlename+' '+phoneNumber+' '+businessAddress+' '+sexValue+' '+applicantImg);
@@ -679,7 +679,7 @@ function getSteps() {
     } else if (activeStep == 1) {
       if (accName === '' || accNumber === '' || bankName === '' || bvn === '' || meansOfId === '' || actualId === '' || age === '' || meansOfIdImg === '') {
         setAlert('All fields are required', 'danger');
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        // setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(accName+' '+accNumber+' '+bankName+' '+bvn+' '+meansOfId+' '+actualId+' '+age);
@@ -689,7 +689,7 @@ function getSteps() {
     } else if (activeStep == 2) {
       if (nextOfKinName === '' || nextOfKinAddr === '' || nextOfKinNumber === '' || NextOfKinImg === '') {
         setAlert('All fields are required', 'danger');
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        // setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(nextOfKinName+' '+nextOfKinAddr+' '+nextOfKinNumber+' '+nextOfKinSex);
@@ -700,7 +700,7 @@ function getSteps() {
       if (gaurantor === '' || gaurantorAddr === '' || gaurantorNumber === '' || guarantorImg1 === '') {
         console.log('empty');
         setAlert('All fields are required', 'danger');
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        // setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(gaurantor+' '+gaurantorAddr+' '+gaurantorNumber+' '+gaurantorSex);
