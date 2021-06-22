@@ -41,7 +41,7 @@ export const Navbar = ({}) => {
                             <i className="fas fa-align-justify"></i>
                         </button>
                         <a className="ml-2 ml-md-0 mr-auto" href="/about_us">  
-                            <img class='d-inline-block main-logo' src="public/img/egoras-new-logo.png" alt="Logo" style={{width: '45px'}} className="img-fluid" />
+                            <img class='d-inline-block main-logo' src="/img/egoras-new-logo.png" alt="Logo" style={{width: '45px'}} className="img-fluid" />
                             <span class='logo-text'>EGORAS</span>
                         </a>
                         <div class='d-flex d-md-none d-none'>
@@ -89,26 +89,27 @@ export const Navbar = ({}) => {
                 
 
                 {pageLocate == true ? (
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light sub-navbar py-1 d-md-block d-none">
+                    // <nav className="navbar navbar-expand-lg navbar-light bg-light sub-navbar py-1 d-md-block d-none">
                     
-                        <div class=''>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <div className="navbar-nav justify-content-around w-100">
-                                    <a className="nav-item nav-link text-white" href="#">Home & Office</a>
-                                    <a className="nav-item nav-link text-white" href="#">Supermarket</a>
-                                    <a className="nav-item nav-link text-white" href="#">Health & Beauty</a>
-                                    <a className="nav-item nav-link text-white" href="#">Phones & Tablets</a>
-                                    <a className="nav-item nav-link text-white" href="#">Fashion</a>
-                                    <a className="nav-item nav-link text-white" href="#">Gaming</a>
-                                    <a className="nav-item nav-link text-white" href="#">Electronics</a>
-                                    <a className="nav-item nav-link text-white" href="#">Others</a>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
+                    //     <div class=''>
+                    //         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    //             <span className="navbar-toggler-icon"></span>
+                    //         </button>
+                    //         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    //             <div className="navbar-nav justify-content-around w-100">
+                    //                 <a className="nav-item nav-link text-white" href="#">Home & Office</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Supermarket</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Health & Beauty</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Phones & Tablets</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Fashion</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Gaming</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Electronics</a>
+                    //                 <a className="nav-item nav-link text-white" href="#">Others</a>
+                    //             </div>
+                    //         </div>
+                    //     </div>
+                    // </nav>
+                    <div></div>
                     ) : null}
 
                 <div class='w-100 px-3 pb-2 d-md-none d-block'>

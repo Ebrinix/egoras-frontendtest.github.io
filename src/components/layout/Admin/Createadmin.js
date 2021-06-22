@@ -140,7 +140,9 @@ export const Createadmin = ({ setAlert, createUser }) => {
             if (e.currentTarget.id == "passport") {
                 if (e.currentTarget.files.length == 0) {
                     setUserInfo({ ...userInfo, passport: "" });
-                    document.getElementById("output1").src = "";
+                    // document.getElementById("output1").src = "";
+                    image1 = document.getElementById('output1');
+                    image1.src  = '';
                 } else {
                     image1 = document.getElementById('output1');
                     var objectUrl1 = URL.createObjectURL(e.currentTarget.files[0]);
@@ -158,6 +160,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
     const handleChange23 = (event) => {
         setRole(event.target.value);
         console.log(event.target.value);
+        var image1;
         
         // $('#getForm input[type="text"]').val('');
         document.getElementById("getForm").reset();
@@ -165,18 +168,59 @@ export const Createadmin = ({ setAlert, createUser }) => {
         if (event.target.value === 'in-house') {
             setToggleDesignation('in-house');
             setUserInfo({
+                first_name: "",
+                last_name: "",
+                other_name: "",
+                phone: "",
+                passport: "",
+                branch: "",
+                staffId: "",
+                meansOfID: "",
+                password: "",
+                confirmPassword: "",
+                
                 mainRole: event.target.value,
-              });
+            });
+
+            image1 = document.getElementById('output1');
+            image1.src  = '';
+              
         } else if (event.target.value === 'super-admin') {
             setToggleDesignation('super-admin');
             setUserInfo({
+                first_name: "",
+                last_name: "",
+                other_name: "",
+                phone: "",
+                passport: "",
+                branch: "",
+                staffId: "",
+                meansOfID: "",
+                password: "",
+                confirmPassword: "",
+                
                 mainRole: event.target.value,
               });
+            image1 = document.getElementById('output1');
+            image1.src  = '';
         } else if (event.target.value === 'admin') {
             setToggleDesignation('admin');
             setUserInfo({
+                first_name: "",
+                last_name: "",
+                other_name: "",
+                phone: "",
+                passport: "",
+                branch: "",
+                staffId: "",
+                meansOfID: "",
+                password: "",
+                confirmPassword: "",
+                
                 mainRole: event.target.value,
               });
+            image1 = document.getElementById('output1');
+            image1.src  = '';
         }
         
     };
@@ -185,36 +229,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
         setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
         // const { name, value } = e.target;
         
-        // switch (name) {
-        //     case 'password': 
-        //       errors.password = 
-        //         value.length < 7
-        //           ? 'Password must be 7 characters long!'
-        //           : '';
-            
-        //       break;
-        //     case 'confirmPassword': 
-        //         errors.confirmPassword = 
-        //         value.length < 7
-        //           ? 'Password must be 7 characters long!'
-        //           : '';
-        //       break;
-        //     case 'password': 
-        //     //   errors.password = 
-        //     //    value.length < 8
-        //     //       ? 'Password must be 8 characters long!'
-        //     //       : '';
-        //       break;
-        //     default:
-        //       break;
-        //   }
-
-        //   console.log(errors.password);
     }
-
-    // var str = 'hellsorld';
-    // var result = regex.test(str);
-    // console.log(result);
     
     const { first_name, last_name, other_name, email, phone, passport, branch , staffId , meansOfID , password, confirmPassword, errors } = userInfo;  
     

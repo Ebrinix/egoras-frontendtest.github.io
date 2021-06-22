@@ -7,7 +7,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOG_OUT
+  LOG_OUT,
+  API_URL as api_url
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
