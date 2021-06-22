@@ -138,7 +138,10 @@ function getSteps() {
     lastname: "",
     middlename: "",
     phoneNumber: "",
-    address: "",
+    homeAddr: "",
+    businessAddress: "",
+    union: "",
+    businessActivity: "",
     accName: "",
     accNumber: "",
     actualId: "",
@@ -152,7 +155,7 @@ function getSteps() {
     gaurantor2: "",
     gaurantorAddr2: "",
     gaurantorNumber2: "",
-    // meansOfId: "",
+    bvn: "",
 
 
     // For images
@@ -202,16 +205,73 @@ function getSteps() {
                 />
               </div>
             </div>
+            <div className='form-row'>
+              <div className="form-group col-md-6">
+                <TextField
+                    
+                    label="Middlename"
+                    placeholder="Middlename"
+                    multiline
+                    variant="outlined"
+                    className='custom-inputs w-100'
+                    name='middlename' 
+                    value={middlename} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
+              <div className="form-group col-md-6">
+                <TextField
+                    id="outlined-number"
+                    label="Phone Number"
+                    placeholder="Phone Number"
+                    type="number"
+                    className='custom-inputs w-100 remove-arrow'
+                    variant="outlined"
+                    name='phoneNumber' 
+                    value={phoneNumber} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
+            </div>
+            <div className='form-row'>
+              <div className="form-group col-md-6">
+                <TextField
+                    
+                    label="Home Address"
+                    placeholder="Home Address"
+                    multiline
+                    variant="outlined"
+                    className='custom-inputs w-100'
+                    name='homeAddr' 
+                    value={homeAddr} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
+              <div className="form-group col-md-6">
+                <TextField
+                    
+                    label="Business Address"
+                    placeholder="Business Address"
+                    multiline
+                    variant="outlined"
+                    className='custom-inputs w-100'
+                    name='businessAddress' 
+                    value={businessAddress} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
+            </div>
             <div className="form-group">
               <TextField
                   
-                  label="Middlename"
-                  placeholder="Middlename"
+                  label="Union"
+                  placeholder="Union"
                   multiline
                   variant="outlined"
                   className='custom-inputs w-100'
-                  name='middlename' 
-                  value={middlename} 
+                  helperText="Be sure to enter your correct Union name"
+                  name='union' 
+                  value={union} 
                   onChange={e => onChange(e)}
                 />
             </div>
@@ -219,29 +279,19 @@ function getSteps() {
              
                 <TextField
                   id="outlined-number"
-                  label="Phone Number"
-                  placeholder="Phone Number"
+                  label="Business Activity"
+                  placeholder="Short description of your business activity..."
                   type="number"
+                  multiline
+                  rows={4}
                   className='custom-inputs w-100 remove-arrow'
                   variant="outlined"
-                  name='phoneNumber' 
-                  value={phoneNumber} 
+                  name='businessActivity' 
+                  value={businessActivity} 
                   onChange={e => onChange(e)}
                 />
             </div>
-            <div className="form-group">
-              <TextField
-                  
-                  label="Address"
-                  placeholder="Address"
-                  multiline
-                  variant="outlined"
-                  className='custom-inputs w-100'
-                  name='address' 
-                  value={address} 
-                  onChange={e => onChange(e)}
-                />
-            </div>
+            
             <div className='form-row mt-3'>
               <div className='form-group col-md-7'>
                 <label for="">Passport Photo</label><br />
@@ -308,19 +358,35 @@ function getSteps() {
                 />
               </div>
             </div>
-            <div className="form-group">
-              
-              <TextField
-                  
-                  label="Account Name"
-                  placeholder="Account Name"
-                  multiline
-                  variant="outlined"
-                  className='custom-inputs w-100'
-                  name='accName' 
-                  value={accName} 
-                  onChange={e => onChange(e)}
-                />
+            <div className='form-row'>
+              <div className="form-group col-md-6">
+                
+                <TextField
+                    
+                    label="Account Name"
+                    placeholder="Account Name"
+                    multiline
+                    variant="outlined"
+                    className='custom-inputs w-100'
+                    name='accName' 
+                    value={accName} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
+              <div className="form-group col-md-6">
+                
+                <TextField
+                    
+                    label="BVN"
+                    placeholder="Bank Verification Number"
+                    multiline
+                    variant="outlined"
+                    className='custom-inputs w-100'
+                    name='bvn' 
+                    value={bvn} 
+                    onChange={e => onChange(e)}
+                  />
+              </div>
             </div>
             <div className='form-row'>
               <div className='form-group col-md-6'>
@@ -328,7 +394,7 @@ function getSteps() {
                   
                     <div className='mr-2'>
                       <FormControl className={classes.formControl+ " w-100" }>
-                        <InputLabel id="demo-controlled-open-select-label">Means of ID</InputLabel>
+                        <InputLabel id="demo-controlled-open-select-label">Means of Identification</InputLabel>
                         <Select
                           labelId="demo-controlled-open-select-label"
                           id="demo-controlled-open-select"
@@ -600,27 +666,30 @@ function getSteps() {
   }
   const handleNext = () => {
     if (activeStep == 0) {
-      if (firstname === '' || lastname === '' || middlename === '' || phoneNumber === '' || address === '' || applicantImg === '') {
+      if (firstname === '' || lastname === '' || middlename === '' || phoneNumber === '' || businessAddress === '' || applicantImg === '') {
         console.log('empty');
         setAlert('All fields are required', 'danger');
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
-        console.log(firstname+' '+lastname+' '+middlename+' '+phoneNumber+' '+address+' '+sexValue+' '+applicantImg);
+        console.log(firstname+' '+lastname+' '+middlename+' '+phoneNumber+' '+businessAddress+' '+sexValue+' '+applicantImg);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       }
     } else if (activeStep == 1) {
-      if (accName === '' || accNumber === '' || bankName === '' || meansOfId === '' || actualId === '' || age === '' || meansOfIdImg === '') {
+      if (accName === '' || accNumber === '' || bankName === '' || bvn === '' || meansOfId === '' || actualId === '' || age === '' || meansOfIdImg === '') {
         setAlert('All fields are required', 'danger');
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
-        console.log(accName+' '+accNumber+' '+bankName+' '+meansOfId+' '+actualId+' '+age);
+        console.log(accName+' '+accNumber+' '+bankName+' '+bvn+' '+meansOfId+' '+actualId+' '+age);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       }
     } else if (activeStep == 2) {
       if (nextOfKinName === '' || nextOfKinAddr === '' || nextOfKinNumber === '' || NextOfKinImg === '') {
         setAlert('All fields are required', 'danger');
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(nextOfKinName+' '+nextOfKinAddr+' '+nextOfKinNumber+' '+nextOfKinSex);
@@ -631,6 +700,7 @@ function getSteps() {
       if (gaurantor === '' || gaurantorAddr === '' || gaurantorNumber === '' || guarantorImg1 === '') {
         console.log('empty');
         setAlert('All fields are required', 'danger');
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
         
       } else {
         console.log(gaurantor+' '+gaurantorAddr+' '+gaurantorNumber+' '+gaurantorSex);
@@ -838,7 +908,7 @@ function getSteps() {
 
   } 
 
-  const { firstname, lastname, middlename, phoneNumber, address , accName , bankName , accNumber, actualId , nextOfKinName , nextOfKinAddr , nextOfKinNumber , gaurantor , gaurantorAddr , gaurantorNumber , gaurantor2 , gaurantorAddr2 , gaurantorNumber2 , 
+  const { firstname, lastname, middlename, phoneNumber , homeAddr , union , businessActivity , businessAddress , accName , bankName , bvn , accNumber, actualId , nextOfKinName , nextOfKinAddr , nextOfKinNumber , gaurantor , gaurantorAddr , gaurantorNumber , gaurantor2 , gaurantorAddr2 , gaurantorNumber2 , 
   // All Images
     applicantImg , meansOfIdImg , NextOfKinImg , guarantorImg1 , guarantorImg2 } = userInfo;  
   // console.log(applicantImg);
@@ -846,9 +916,9 @@ function getSteps() {
   const onSubmit = async e => {
     // setIsLoading(true);
     e.preventDefault();
-    console.log(firstname+' '+lastname+' '+middlename+' '+phoneNumber+' '+address+' '+sexValue+' '+accName+' '+accNumber+' '+bankName+' '+meansOfId+' '+actualId+' '+age+' '+nextOfKinName+' '+nextOfKinAddr+' '+nextOfKinNumber+' '+nextOfKinSex+' '+gaurantor+' '+gaurantorAddr+' '+gaurantorNumber+' '+gaurantorSex+' '+applicantImg+' '+meansOfIdImg+' '+NextOfKinImg+' '+guarantorImg1+' '+guarantorImg2);
+    console.log(firstname+' '+lastname+' '+middlename+' '+phoneNumber+' '+businessAddress+' '+sexValue+' '+accName+' '+accNumber+' '+bankName+' '+meansOfId+' '+actualId+' '+age+' '+nextOfKinName+' '+nextOfKinAddr+' '+nextOfKinNumber+' '+nextOfKinSex+' '+gaurantor+' '+gaurantorAddr+' '+gaurantorNumber+' '+gaurantorSex+' '+applicantImg+' '+meansOfIdImg+' '+NextOfKinImg+' '+guarantorImg1+' '+guarantorImg2);
 
-    await loanApplication({firstname , lastname , middlename , phoneNumber , address , sexValue , accName , accNumber , bankName , meansOfId , actualId , age , nextOfKinName , nextOfKinAddr , nextOfKinNumber , nextOfKinSex , gaurantor , gaurantorAddr , gaurantorNumber , gaurantorSex , applicantImg , meansOfIdImg , NextOfKinImg , guarantorImg1 , guarantorImg2})
+    await loanApplication({firstname , lastname , middlename , phoneNumber , businessAddress , sexValue , homeAddr , union , businessActivity , businessAddress , accName , accNumber , bankName , bvn , meansOfId , actualId , age , nextOfKinName , nextOfKinAddr , nextOfKinNumber , nextOfKinSex , gaurantor , gaurantorAddr , gaurantorNumber , gaurantorSex , applicantImg , meansOfIdImg , NextOfKinImg , guarantorImg1 , guarantorImg2})
 
   };
 

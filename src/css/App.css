@@ -153,6 +153,14 @@ p {
   border-color: #89de00;
 }
 
+.bg-lemon {
+  background-color: #89de00;
+}
+
+.main-bg-lemon {
+  background-color: #baff4bab;
+}
+
 .r-products {
   padding: 30px 0;
 }
