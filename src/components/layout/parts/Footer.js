@@ -10,7 +10,7 @@ export const Footer = () => {
     useEffect(() => {
         console.log(currentPage);
         
-        if (currentPage == '/admin/create' || currentPage == '/login' || currentPage == '/change-password') {
+        if (currentPage == '/admin/create' || currentPage == '/login' || currentPage == '/change-password' || currentPage == '/admin/all-loans' || currentPage == '/admin/all-employees') {
             setAdminLocate(false);
         } else {
             setAdminLocate(true);

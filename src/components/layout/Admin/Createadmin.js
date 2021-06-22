@@ -622,7 +622,7 @@ export const Createadmin = ({ setAlert, createUser }) => {
                                                 </div>
                                                 <div className="form-group col-md-6">
                                                     <label for="">Passport Photo</label><br />
-                                                    <input className='dark-input' type='file' name='passport' id='passport'  onChange={onFileChange} />
+                                                    <input className='dark-input w-100' type='file' name='passport' id='passport'  onChange={onFileChange} />
                                                     <img id="output1" className="img-fluid mt-4" />
                                                 </div>
                                                 <div className="form-group col-md-6">

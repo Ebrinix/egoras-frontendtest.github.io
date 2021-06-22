@@ -295,7 +295,7 @@ function getSteps() {
             <div className='form-row mt-3'>
               <div className='form-group col-md-7'>
                 <label for="">Passport Photo</label><br />
-                <input className='dark-input' type='file' name='applicantImg' id='applicantImg'  onChange={onFileChange} />
+                <input className='dark-input w-100' type='file' name='applicantImg' id='applicantImg'  onChange={onFileChange} />
                 <img id="output1" className="img-fluid mt-4" />
               </div>
               <div className='form-group col-md-5'>
@@ -516,7 +516,7 @@ function getSteps() {
               <div className='form-row'>
                 <div className='form-group col-md-7'>
                   <label for="">Passport Photo</label><br />
-                  <input className='dark-input' type='file' name='NextOfKinImg' id='NextOfKinImg'  onChange={onFileChange} />
+                  <input className='dark-input w-100' type='file' name='NextOfKinImg' id='NextOfKinImg'  onChange={onFileChange} />
                   <img id="output3" className="img-fluid mt-4" />
                 </div>
                 <div className="form-group col-md-5">
@@ -579,7 +579,7 @@ function getSteps() {
               <div className='form-row'>
                 <div className='form-group col-md-7'>
                   <label for="">Passport Photo</label><br />
-                  <input className='dark-input' type='file' name='guarantorImg1' id='guarantorImg1'  onChange={onFileChange} />
+                  <input className='dark-input w-100' type='file' name='guarantorImg1' id='guarantorImg1'  onChange={onFileChange} />
                   <img id="output4" className="img-fluid mt-4" />
                 </div>
                 <div className="form-group col-md-5">
@@ -640,7 +640,7 @@ function getSteps() {
                               <div className='form-row'>
                                 <div className='form-group col-md-7'>
                                   <label for="">Passport Photo</label><br />
-                                  <input className='dark-input' type='file' name='guarantorImg2' id='guarantorImg2' onChange={onFileChange} />
+                                  <input className='dark-input w-100' type='file' name='guarantorImg2' id='guarantorImg2' onChange={onFileChange} />
                                   <img id="output5" className="img-fluid mt-4" />
                                 </div>
                                 <div className="form-group col-md-5">

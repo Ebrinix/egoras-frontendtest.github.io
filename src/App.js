@@ -25,6 +25,8 @@ import Scrolltotop from './components/layout/parts/Scrolltotop';
 import Application from './components/layout/loan/Application';
 import Verification from './components/layout/loan/Verification';
 import Createadmin from './components/layout/Admin/Createadmin';
+import AllLoans from './components/layout/Superadmin/AllLoans';
+import AllEmployee from './components/layout/Superadmin/AllEmployee';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -49,6 +51,8 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <Route exact path='/change-password' component={Changepassword} />
               <Route exact path='/admin/create' component={Createadmin} />
+              <Route exact path='/admin/all-loans' component={AllLoans} />
+              <Route exact path='/admin/all-employees' component={AllEmployee} />
               <Route exact path='/loan/application' component={Application} />
               <Route exact path='/loan/verification' component={Verification} />
               <Route exact path='/product-result' component={Productresults} />

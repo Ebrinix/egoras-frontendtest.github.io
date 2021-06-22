@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export const AllLoans = ({ }) => {
+export const AllEmployee = ({ }) => {
     const classes = makeStyles();
 
     return (
@@ -84,16 +84,16 @@ export const AllLoans = ({ }) => {
                                 <li className="nav-item">
                                     <a className="nav-link cus-nav-link" href="/admin/all-loans">
                                     <span className="sidebar-icon d-block text-center">
-                                        <FontAwesomeIcon style={{color: '#89de00'}} className='fa-1x text-gray' icon={faWallet} />
-                                        <div className='fadeInRight animated side-name'>Loans</div>
+                                        <FontAwesomeIcon className='fa-1x text-gray' icon={faWallet} />
+                                        <div className='fadeInRight animated side-name'>All Loans</div>
                                     </span>
-                                    <span className="fadeInRight animated nav-link-name name-hide tax-show">Loans</span>
+                                    <span className="fadeInRight animated nav-link-name name-hide tax-show">All Loans</span>
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link cus-nav-link" href="/admin/all-employees">
                                     <span className="sidebar-icon d-block text-center">
-                                        <FontAwesomeIcon className='fa-1x text-gray' icon={faFileInvoiceDollar} />
+                                        <FontAwesomeIcon style={{color: '#89de00'}} className='fa-1x text-gray' icon={faFileInvoiceDollar} />
                                         <div className='fadeInRight animated side-name'>Employees</div>
                                     </span>
                                     <span className="fadeInRight animated nav-link-name name-hide tax-show">Employees</span>
@@ -249,7 +249,7 @@ export const AllLoans = ({ }) => {
                                             birthCity: 63 
                                         },
                                             ]}
-                                    title="All Loans"
+                                    title="All Employees"
                                     />
                                 </div>
                             </div>
@@ -264,5 +264,5 @@ export const AllLoans = ({ }) => {
     );
 };
 
-// export default connect(null, {setAlert, createUser })(AllLoans);
-export default AllLoans;
+// export default connect(null, {setAlert, createUser })(AllEmployee);
+export default AllEmployee;
